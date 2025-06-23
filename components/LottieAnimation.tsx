@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Lottie from 'lottie-react';
+import type { LottieComponentProps } from 'lottie-react';
 
 interface Props {
   src: string;
@@ -8,7 +9,7 @@ interface Props {
 }
 
 const LottieAnimation = ({ src, height = 400, width = 400 }: Props) => {
-  const [animationData, setAnimationData] = useState<any>(null);
+  const [animationData, setAnimationData] = useState<LottieComponentProps['animationData'] | null>(null);
 
   useEffect(() => {
     fetch(src)
@@ -17,7 +18,9 @@ const LottieAnimation = ({ src, height = 400, width = 400 }: Props) => {
       .catch((err) => console.error('Failed to load animation:', err));
   }, [src]);
 
-  if (!animationData) return <div style={{ color: 'white' }}>Loading animation...</div>;
+  if (!animationData) {
+    return <div style={{ color: 'white' }}>Loading animation...</div>;
+  }
 
   return (
     <div style={{ width, height, margin: '0 auto' }}>
