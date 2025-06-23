@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import Lottie from 'lottie-react';
+import Lottie from 'lottie-react'; // ✅ This line was missing
+import type { LottieComponentProps } from 'lottie-react';
+
 
 export default function AnimatedPage() {
-  const [animationData, setAnimationData] = useState<any>(null);
+
+const [animationData, setAnimationData] = useState<LottieComponentProps['animationData'] | null>(null);
 
   useEffect(() => {
     fetch('/animations/urban-animation.json')
