@@ -38,7 +38,6 @@ export default function AnimatedPage() {
           <div style={{ width: 400, height: 400, marginBottom: '2rem' }}>
             <Lottie animationData={animationData} loop autoplay />
           </div>
-              width={16}
         ) : (
           <p>Loading animation...</p>
         )}
