@@ -1,78 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  margin: 0;
-  font-family: 'Orbitron', sans-serif;
   background-color: #000;
   color: #fff;
-}
-
-h1, p {
-  margin: 0;
-  padding: 0;
-}
-
-.glitch {
-  color: #FF0000;
-  font-size: 3rem;
-  position: relative;
-}
-
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-}
-
-.glitch::before {
-  top: -2px;
-  color: #FFD700;
-  animation: glitchTop 1s infinite linear alternate-reverse;
-}
-
-.glitch::after {
-  top: 2px;
-  color: #FFFFFF;
-  animation: glitchBottom 1s infinite linear alternate-reverse;
-}
-
-@keyframes glitchTop {
-  0% {
-    clip-path: inset(0 0 80% 0);
-  }
-  100% {
-    clip-path: inset(0 0 20% 0);
-  }
-}
-
-@keyframes glitchBottom {
-  0% {
-    clip-path: inset(80% 0 0 0);
-  }
-  100% {
-    clip-path: inset(20% 0 0 0);
-  }
-}
-
-.glow-button {
-  display: inline-block;
-  padding: 14px 28px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #fff;
-  background-color: transparent;
-  border: 2px solid #FF0000;
-  border-radius: 8px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000;
-}
-
-.glow-button:hover {
-  background-color: #FF0000;
-  box-shadow: 0 0 20px #FF0000, 0 0 40px #FF0000;
-  color: #000;
+  font-family: sans-serif;
 }
