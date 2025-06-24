@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,6 +9,15 @@ body {
   color: #fff;
   font-family: sans-serif;
 }
+
+/* Gritty Headings */
+.glitch,
+h1,
+h2,
+.nav-link {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
 .glitch {
   color: white;
   font-size: 3rem;
@@ -76,3 +87,102 @@ body {
   }
 }
 
+/* Nav layout fix */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  background-color: black;
+  z-index: 100;
+  box-shadow: 0 0 10px #ff00ff, 0 0 30px #ff00ff;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-family: 'Bebas Neue', sans-serif;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.25rem;
+  position: relative;
+  padding-bottom: 5px;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: #ff00ff;
+  box-shadow: 0 0 10px #ff00ff;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: #ff00ff;
+  text-shadow: 0 0 5px #ff00ff;
+}
+
+
+/* Wallet Button top-right alignment */
+.connect-wallet-button {
+  margin-left: auto;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #FFD700;
+  background: black;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FF00FF;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.connect-wallet-button:hover {
+  background: #111;
+  box-shadow: 0 0 20px #FFD700, 0 0 40px #FF00FF;
+  color: #FFD700;
+}
+
+
+.connect-wallet-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, #FFD700, transparent);
+  transform: skewX(-45deg);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}

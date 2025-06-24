@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import LottieAnimation from '../components/LottieAnimation';
+import NavBar from '../components/NavBar'; // ✅ Import NavBar
 
 export default function AnimatedPage() {
   return (
@@ -7,6 +8,9 @@ export default function AnimatedPage() {
       <Head>
         <title>Urban Warriors Animation</title>
       </Head>
+
+      <NavBar /> {/* ✅ Add NavBar at the top */}
+
       <main
         style={{
           height: '100vh',
@@ -19,9 +23,9 @@ export default function AnimatedPage() {
           textAlign: 'center',
         }}
       >
-      <h1 className="glitch" data-text="Urban Warriors">
-  Urban Warriors
-</h1>
+        <h1 className="glitch" data-text="Urban Warriors">
+          Urban Warriors
+        </h1>
 
         <p style={{ color: '#FFD700', marginBottom: '2rem' }}>
           The streets are watching. The future is urban.
