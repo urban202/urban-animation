@@ -1,17 +1,7 @@
-import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import Lottie from 'lottie-react';
+import LottieAnimation from '../components/LottieAnimation';
 
-const AnimatedPage = () => {
-  const [animationData, setAnimationData] = useState<any>(null);
-
-  useEffect(() => {
-    fetch('/animations/urban-animation.json')
-      .then((res) => res.json())
-      .then((data) => setAnimationData(data))
-      .catch((err) => console.error('Failed to load animation:', err));
-  }, []);
-
+export default function AnimatedPage() {
   return (
     <>
       <Head>
@@ -29,41 +19,35 @@ const AnimatedPage = () => {
           textAlign: 'center',
         }}
       >
-        <h1 style={{ color: 'white' }}>Urban Warriors</h1>
+      <h1 className="glitch" data-text="Urban Warriors">
+  Urban Warriors
+</h1>
+
         <p style={{ color: '#FFD700', marginBottom: '2rem' }}>
           The streets are watching. The future is urban.
         </p>
 
-        {animationData ? (
-          <div style={{ width: 300, height: 300, marginBottom: '2rem' }}>
-            <Lottie animationData={animationData} loop autoplay />
-          </div>
-        ) : (
-          <p style={{ color: 'white' }}>Loading animation...</p>
-        )}
+        <LottieAnimation
+          src="/animations/urban-animation.json"
+          height={400}
+          width={400}
+          backgroundColor="#111"
+          glowColor="#ff00ff"
+        />
 
         <a
           href="https://urbanwarriors.club"
           target="_blank"
           rel="noopener noreferrer"
           style={{
+            marginTop: '2rem',
             padding: '1rem 2rem',
-            borderRadius: '8px',
-            backgroundColor: 'black',
             color: '#ff00ff',
-            fontWeight: 'bold',
+            backgroundColor: 'black',
             border: '2px solid #ff00ff',
             textDecoration: 'none',
+            fontWeight: 'bold',
             boxShadow: '0 0 10px #ff00ff, 0 0 20px #ff00ff',
-            transition: 'transform 0.2s, box-shadow 0.3s',
-          }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.boxShadow = '0 0 20px #ff00ff, 0 0 40px #ff00ff';
-            e.currentTarget.style.transform = 'scale(1.05)';
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.boxShadow = '0 0 10px #ff00ff, 0 0 20px #ff00ff';
-            e.currentTarget.style.transform = 'scale(1)';
           }}
         >
           Enter Site
@@ -71,6 +55,4 @@ const AnimatedPage = () => {
       </main>
     </>
   );
-};
-
-export default AnimatedPage;
+}
